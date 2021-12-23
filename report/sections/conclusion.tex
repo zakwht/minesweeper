@@ -1,0 +1,15 @@
+\section{Conclusion}
+
+Reward structure is critical in determining the agent’s ability to succeed. Naivety is a danger, but over-complexity can weaken the agent’s policy as well. Comparing Q learning with deep Q learning algorithms, deep Q learning takes more time to train. Trained for the same amount of time, the normal Q agent performs better in terms of average reward and board completion rate, but the deep agent has a higher winning rate. Hence, it is unclear to say one is necessarily better than the other, but it is likely that the deep agent will outperform the normal Q agent if trained for the same amount of episodes, and it is more practical for a larger board. Both the trained normal Q agent and deep agent perform substantially better than the baseline random agent. More generally, Q table suffers from a finite state space, but a deep Q neural net does not since the size of Q table increases substantially as training or board size increases, while the size of weights for a neural net stays relatively stable. 
+
+\subsection{Future Work}
+
+It is likely that given the time, more training will yield better results. There are also a few more hyperparameters to be tuned for deep Q learning:
+
+\begin{itemize}
+\item \textbf{target\_model\_update} to determine how often the target copied network should be updated
+\item \textbf{nb\_steps\_warmup} to determine how long we wait before actually training the network
+\item \textbf{Memory limit} for experience relay
+\end{itemize}
+
+Different neural net structures could be experimented more, such as convolutional neural net (CNN) and recurrent neural net (RNN). We did try using CNN but a phenomenon called \emph{catastrophic forgetting} occurred where the agent unlearns its experience in an unexpected way, having initially increasing rewards and then drastically decreasing rewards afterwards. Lastly, an interesting question to ask is: is there a way to utilize the Q table / neural network from smaller boards to be combined to a larger one for a larger board?

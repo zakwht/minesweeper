@@ -1,0 +1,15 @@
+\begin{algorithm}[H]
+  \caption{Q-Learning} 
+  \SetAlgoLined
+  Parameters: $\epsilon, \alpha, \gamma \in (0, 1]$\;
+  \For{each episode}{
+    Initialize state $S$\;
+    \While{game is not over}{
+      Choose $A$ from $S$ using exploitation or exploration\;
+      Take action $A$, observe state $S'$ and reward $R(S, A)$\;
+      $Q(S, A) \leftarrow$ new Q-value computed with the Bellman equation\;
+      $S \leftarrow$ S'\;
+    }
+    Reduce exploration rate\;
+  }
+\end{algorithm}

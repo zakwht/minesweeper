@@ -1,0 +1,41 @@
+\documentclass[10pt]{article}
+
+% dependencies
+\usepackage{multirow} % better tables
+\usepackage{enumitem} % better lists
+\usepackage{array,ragged2e} % better tables: alignment
+\usepackage{amsmath, mathtools} % better equations: text
+\usepackage[makeroom]{cancel} % better equations: strikethrough
+\usepackage[ruled,vlined]{algorithm2e} % algorithms
+\usepackage[pdfusetitle]{hyperref} % for links and PDF metadata
+\usepackage{makecell} % better tables: multi-line cells
+\usepackage[backend=biber,style=ieee]{biblatex} % bibliography
+\usepackage{geometry} % margin control
+\usepackage{graphicx} % include images
+\usepackage{float} % for table and figure placement
+
+% configuration
+\setlength\parindent{0pt} % NO indents
+\addbibresource{references.bib} % references
+\geometry{margin=1.5in} % 1.5inch margins
+\graphicspath{ {images/} } % image folder
+
+% metadata
+\title{Reinforcement Learning in Minesweeper}
+\date{April 12, 2021}
+\author{Dudhat, Hird, Kosman, Theriault, White, Zhao}
+
+% document
+\begin{document}
+\include{sections/title}
+\input{sections/introduction}
+\input{sections/problem}
+\input{sections/related-work}
+\input{sections/environment}
+\input{sections/q-learning}
+\input{sections/deep-q-learning}
+\input{sections/conclusion}
+\input{sections/acknowledgements}
+\printbibliography[title={References}]
+\include{sections/appendix}
+\end{document}

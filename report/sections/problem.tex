@@ -1,0 +1,18 @@
+\section{Problem}
+
+The problem is to develop a Q-learning and deep Q-learning agent to play the game  Minesweeper. Due to the nature of reinforcement learning, datasets cannot be used for this purpose. Instead, a Minesweeper gym environment was developed to train our agent to allow for the selection of actions.
+\\\\
+Minesweeper, as a puzzle game, involves logic, strategies, and pattern recognition. By training an agent to solve games, we can observe which decisions the agent makes based on patterns humans may not be able to notice or understand. 
+
+\subsection{Approach}
+
+We configured a training environment to simulate Minesweeper games. Then, the Q learning algorithm is implemented, and the Q-learning agent is trained with different reward structures. After finding the most suitable structure that provides the best results, hyperparameters are tuned over approximately 8 million games. Due to the high number of possible states, we only trained our agent for a small board size of $4\times4$. To demonstrate the agent’s learning, its performance was then evaluated against the performance of an agent that made randomly generated moves.
+\\\\
+After observing the results of the Q-learning agent, we implemented and trained a deep Q-learning agent by using the same optimal hyperparameter values and the Deep Reinforcement Learning Library (keras-rl2).
+
+\subsection{Goals}
+
+We will measure the success of our agent by its ability to win randomly-generated games.
+To measure progression, we will track the win rate, board completion, and average total reward as the agent is trained, then evaluate the same metrics on the fully-trained agent to quantify its success.
+\\\\
+We also ran an untrained agent to collect the win rates of randomly generated moves; and compared our results with this. Our goal was to at least beat the scores of this untrained agent; a larger the difference in the win rates would prove our agent has learnt more.

@@ -1,0 +1,11 @@
+\setlength\parindent{15pt}
+\[
+ \underbrace{Q'(s,a)}_{\mathclap{\substack{\text{New Q-value} \\ \text{for this state} \\ \text{and action}}}} 
+  = \overbrace{Q(s,a)}^{\mathclap{\substack{\text{Current} \\ \text{Q-value}}}} 
+  + \underset{\mathclap{\substack{\\ \uparrow \\ \text{Learning} \\ \text{rate}}}}{\alpha}
+  [ \overbrace{R(s,a)}^{\mathclap{\substack{\text{Reward for} \\ \text{this state} \\ \text{and action}}}} 
+  + \overset{\mathclap{\substack{\text{\indent\indent  Discount} \\ \text{\indent\indent rate} \\ \indent\swarrow \\ \text{}}}}{\gamma} 
+  \underbrace{maxQ(s',a')}_{\mathclap{\substack{\text{Maximum future reward} \\ \text{for all possible actions} \\ \text{at the new state}}}}
+  - Q(s, a)] 
+\]
+\setlength\parindent{0pt}

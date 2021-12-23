@@ -1,0 +1,55 @@
+\section{Q-Learning}
+The implementation of Q-learning involves the construction of a Q-table which holds a Q-value for each pairwise combination of states and actions.
+For any state, the action that provides the maximum Q-value for that state in the table represents the best possible action.
+After each action, the corresponding Q-value is updated by using the Bellman equation \cite{mitchell}:
+
+\input{content/bellman}
+
+The agent learns through a combination of exploitation and exploration: choosing the best possible action using the Q-table, or choosing a random action, respectively.
+During training, the decision between exploration and exploitation is dictated by the exploration parameter ($\epsilon$), representing the chance an action is explorative. 
+At each step, the exploration rate is reduced to progressively reduce the amount of random actions taken.
+The basic pseudocode for the algorithm is defined below \cite{mateo}.
+\\
+
+\input{content/ql-algorithm}
+
+\subsection{Hyperparameter Tuning}
+Once the Q-learning was implemented, we began tuning each of four hyperparameters to optimize the agent's results. To do this, a range of values was created for each parameter. Then, for each varied parameter value, a $4\times4$ board was used to run the agent for 40,000 episodes for training. The training’s generated Q-table was then used for testing over 8000 episodes. Within each round the score, win percentage, and board completion was recorded in order to be graphed against the parameter. Using these graphs (included in Appendix B), the optimized hyperparameter was selected. 
+
+\begin{itemize}
+  \item {
+    The \textbf{discount rate}, $\gamma \in (0, 1]$\\
+    The discount rate quantifies the importance of future rewards -- a smaller value prioritizes immediate rewards, while a higher value places emphasis on future rewards. 
+    There was a slight increase in win percentage as discount rate increased, with 0.90 giving the highest test win rate. 
+    At 0.90, the agent will heavily consider future rewards over immediate rewards.
+    
+  }
+  \item {
+    The \textbf{learning rate}, $\alpha \in (0, 1]$\\
+    The learning rate dictates to what extent newly-learnt information overrides existing information.
+    With the best value of 0.05, the agent relies heavily on prior knowledge, learning very little for each step.
+    
+  }
+  \item {
+    The \textbf{minimum exploration rate}, $\epsilon_{min} \leq 0.1$\\
+    As the exploration rate decays, $\epsilon_{min}$ controls the limit of exploitation. 
+    The smaller the value, the less exploration will occur as the agent progresses through training.  
+    There was a steady decline in win rate as $\epsilon_{min}$ increased, so we selected a small value of 0.005.
+  }
+  \item {
+    The \textbf{exploration decay rate}, $\epsilon_{decay} \leq 0.02$\\
+    The epsilon decay rate defines how much the exploration rate will decrease after each episode.
+    The win percentage remained mostly uniform as $\epsilon_{decay}$ grew, but peaked when at 0.01, resulting in a gradual exploration decay.
+  }
+\end{itemize}
+
+\input{content/hyperparameters}
+
+\subsection{Results}
+
+Agents were trained and tested using the Q-learning algorithm for various numbers of episodes, the results of which are summarized in Table 3.
+
+\input{content/ql-results}
+
+The final test agent (Agent 4 tested with 1,996,000 episodes) achieved a board completion of 58.4\%.
+As the number of training episodes increases, the agent seems to approach a win-rate in the 13\% to 14\% range. Looking at the testing results, the agents do not show evidence of overfitting, and thus could be further trained to theoretically increase their accuracy. 

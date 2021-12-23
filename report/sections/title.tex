@@ -1,0 +1,69 @@
+\makeatletter
+\newcommand\authors[1]{\renewcommand\@authors{#1}}
+\newcommand\@authors{\@latex@error{No \noexpand\author given}\@ehc}
+\makeatother
+
+\authors{
+  \makecell[tc]{
+    \textbf{Janhavi Dudhat}\\
+    Computer Science\\
+    University of Victoria\\
+    \emph{janhavidudhat@uvic.ca}
+  } & \makecell[tc]{
+    \textbf{Nick Hird}\\
+    Computer Science\\
+    University of Victoria\\
+    \emph{nicholash@uvic.ca}
+  } \\ \makecell[tc]{
+    \textbf{Sam Kosman}\\
+    Software Engineering\\
+    University of Victoria\\
+    \emph{skosman@uvic.ca}
+  } & \makecell[tc]{
+    \textbf{Scott Theriault}\\
+    Software Engineering\\
+    University of Victoria\\
+    \emph{scottlt@uvic.ca}
+  } \\ \makecell[tc]{
+    \textbf{Zak White}\\
+    Computer Science\\
+    \& Statistics\\
+    University of Victoria\\
+    \emph{zakerywhite@uvic.ca}  
+  } & \makecell[tc]{
+    \textbf{Yichun Zhao}\\
+    Computer Science \&\\
+    Health Information Science\\
+    University of Victoria\\
+    \emph{yichunzhao@uvic.ca}
+  }
+}
+
+\def\arraystretch{2.5}
+\makeatletter
+\noindent\makebox[\textwidth]{
+  \begin{minipage}{1.25\textwidth}
+    \centering
+    \rule{\textwidth}{2pt}\\
+    \vspace{5mm}
+    {\Huge \@title}\\
+    \vspace{3mm}
+    \rule{\textwidth}{1pt}
+    \begin{tabular}[t]{cc}%
+      \@authors
+    \end{tabular}
+  \end{minipage}
+}
+\makeatother
+\def\arraystretch{1}
+
+\vspace{2cm}
+
+\begin{center}
+    \begin{minipage}{0.75\textwidth}
+    \begin{center}\section*{Abstract}\end{center}
+    Minesweeper is a famous puzzle game involving a single player, requiring them to clear a board with hidden mines and numerical clues indicating the number of mines in the neighbourhood. We have implemented the Q learning and deep Q learning algorithms, ran several experiments on the reward structures, tuned hyperparameters, trained two final agents, and achieved different levels of success. Both the agents performed substantially better than a baseline random agent. Given the limitation of training time, the Q learning agent performed better in average reward and board completion rate, but the deep Q learning agent had a higher winning rate. The latter is likely to perform better if trained for longer, and is ultimately better suited for larger boards with continuous state spaces due to its ability to predict best actions for unseen states.
+    \end{minipage}
+\end{center}
+
+\thispagestyle{empty}
